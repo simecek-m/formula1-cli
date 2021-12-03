@@ -1,0 +1,12 @@
+{
+  "name": "formula1-scrapper",
+  "version": "1.0.0",
+  "description": "Web scrapper for formula1.com webpage",
+  "main": "index.js",
+  "repository": "https://github.com/simecek-m/formula1-scrapper.git",
+  "author": "simecek.m@seznam.cz",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index"
+  }
+}
