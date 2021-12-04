@@ -1,8 +1,3 @@
-import { scrapeDriversFromYearRange } from "./src/page/driver.js"
+import dataFolder from "./src/folder/index.js";
 
-async function loadData() {
-  const result = await scrapeDriversFromYearRange(1990, 1992)
-  console.table(result)
-}
-
-loadData()
+dataFolder.initialize()
