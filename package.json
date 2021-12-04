@@ -6,10 +6,12 @@
   "repository": "https://github.com/simecek-m/formula1-scrapper.git",
   "author": "simecek.m@seznam.cz",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "start": "node index"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.10"
+    "cheerio": "^1.0.0-rc.10",
+    "node-fetch": "^3.1.0"
   }
 }
