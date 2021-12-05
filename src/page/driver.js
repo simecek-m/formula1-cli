@@ -2,12 +2,13 @@ import fetch from 'node-fetch'
 import cheerio from "cheerio"
 import logger from "../logger/index.js"
 import { RESULTS_URL } from '../constant/url.js'
+import { CHAMPIONSHIP_FIRST_YEAR, THIS_YEAR } from '../constant/year.js'
 
 const getUrlByYear = year => {
   return `${RESULTS_URL}/${year}/drivers.html`
 }
 
-export async function scrapeDriversFromOneYear(year) {
+export async function scrapeDriversFromYear(year = THIS_YEAR) {
   logger.info(`Scrapping drivers from ${year}`)
   const drivers = []
   const url = getUrlByYear(year)
@@ -30,10 +31,10 @@ export async function scrapeDriversFromOneYear(year) {
   }
 }
 
-export async function scrapeDriversFromYearRange(from, to) {
+export async function scrapeDriversFromRange(from = CHAMPIONSHIP_FIRST_YEAR, to = THIS_YEAR) {
   let drivers = [];
   for(let year = from; year <= to; year++) {
-    const yearDrivers = await scrapeDriversFromOneYear(year)
+    const yearDrivers = await scrapeDriversFromYear(year)
     drivers = [...drivers, ...yearDrivers]
   }
   return drivers
