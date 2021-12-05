@@ -1,4 +1,4 @@
-import { FOLDER_PATH } from "../constant/folder.js"
+import { FOLDER_PATH } from "../constant/data.js"
 import logger from "../logger/index.js"
 import { access, mkdir, readdir, unlink } from "fs/promises"
 import { join } from "path"
