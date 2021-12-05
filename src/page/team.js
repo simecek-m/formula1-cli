@@ -3,6 +3,7 @@ import cheerio from "cheerio"
 import logger from "../logger/index.js"
 import { RESULTS_URL } from '../constant/url.js'
 import { CHAMPIONSHIP_FIRST_YEAR, THIS_YEAR } from '../constant/year.js'
+import { uniqWith, isEqual } from 'lodash-es'
 
 const getUrlByYear = year => {
   return `${RESULTS_URL}/${year}/team.html`
@@ -33,5 +34,5 @@ export async function scrapeTeamsFromRange(from = CHAMPIONSHIP_FIRST_YEAR, to = 
     const yearTeams = await scrapeTeamsFromYear(year)
     teams = [...teams, ...yearTeams]
   }
-  return teams
+  return uniqWith(teams, (el1, el2) => isEqual(el1, el2))
 }
