@@ -18,10 +18,10 @@ export async function scrapeDriversFromYear(year = THIS_YEAR) {
     const $ = cheerio.load(body)
     $(".resultsarchive-table tbody tr").each((_, row) => {
       const name = $(row).find("td:nth-child(3)")
-      const firstname = $(name).find("span:first").text()
-      const lastname = $(name).find("span:nth-child(2)").text()
-      const nickname = $(name).find("span:nth-child(3)").text()
-      const nationality = $(row).find("td:nth-child(4)").text()
+      const firstname = $(name).find("span:first").text().trim()
+      const lastname = $(name).find("span:nth-child(2)").text().trim()
+      const nickname = $(name).find("span:nth-child(3)").text().trim()
+      const nationality = $(row).find("td:nth-child(4)").text().trim()
       drivers.push({firstname, lastname, nickname, nationality})
     })
   } catch (error) {

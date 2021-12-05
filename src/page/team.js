@@ -17,7 +17,7 @@ export async function scrapeTeamsFromYear(year = THIS_YEAR) {
     const body = await response.text()
     const $ = cheerio.load(body)
     $(".resultsarchive-table tbody tr").each((_, row) => {
-      const name = $(row).find("td:nth-child(3) a").text()
+      const name = $(row).find("td:nth-child(3) a").text().trim()
       teams.push({ name })
     })
   } catch (error) {
