@@ -6,7 +6,7 @@ import { resolve } from "path"
 export async function writeToCsvFile(fileName, data) {
   logger.info(`Writing data to ${fileName}.csv`)
   const filePath = resolve(FOLDER_PATH, `${fileName}.csv`)
-  writeToPath(filePath, data)
+  writeToPath(filePath, data, { headers: true })
     .on("error", err => logger.error(`Writing ${fileName}.csv file caused error: `, err))
     .on("finish", () => logger.info(`${fileName}.csv was written successfully`))
 }
