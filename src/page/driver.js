@@ -20,7 +20,8 @@ export async function scrapeDriversFromOneYear(year) {
       const firstname = $(name).find("span:first").text()
       const lastname = $(name).find("span:nth-child(2)").text()
       const nickname = $(name).find("span:nth-child(3)").text()
-      drivers.push({firstname, lastname, nickname})
+      const nationality = $(row).find("td:nth-child(4)").text()
+      drivers.push({firstname, lastname, nickname, nationality})
     })
   } catch (error) {
     logger.error(`Error while srapping drivers from year: ${year}`)
