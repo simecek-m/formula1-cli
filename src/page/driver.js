@@ -1,9 +1,10 @@
 import fetch from 'node-fetch'
 import cheerio from "cheerio"
 import logger from "../logger/index.js"
+import { RESULTS_URL } from '../constant/url.js'
 
 const getUrlByYear = year => {
-  return `https://www.formula1.com/en/results.html/${year}/drivers.html`
+  return `${RESULTS_URL}/${year}/drivers.html`
 }
 
 export async function scrapeDriversFromOneYear(year) {
