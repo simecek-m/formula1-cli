@@ -1,9 +1,9 @@
 {
-  "name": "formula1-scrapper",
+  "name": "formula1-data",
   "version": "1.0.0",
-  "description": "Web scrapper for formula1.com webpage",
+  "description": "CLI tool for collecting data about Formula 1 from multiple sources.",
   "main": "index.js",
-  "repository": "https://github.com/simecek-m/formula1-scrapper.git",
+  "repository": "https://github.com/simecek-m/formula1-data.git",
   "author": "simecek.m@seznam.cz",
   "license": "MIT",
   "type": "module",
