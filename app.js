@@ -3,6 +3,7 @@ import { writeToCsvFile} from "./src/data/file.js"
 import { scrapeDriversFromYear } from "./src/web-scraper/driver.js"
 import { scrapeTeamsFromYear } from "./src/web-scraper/team.js"
 import { scrapeRacesFromYear } from "./src/web-scraper/race.js"
+import { collectCountries } from "./src/countries/index.js"
 
 const SEASON = 2015
 
@@ -17,6 +18,9 @@ async function start() {
 
   const races = await scrapeRacesFromYear(SEASON)
   await writeToCsvFile("races", races)
+
+  const countries = await collectCountries()
+  await writeToCsvFile("countries", countries)
 
 }
 
