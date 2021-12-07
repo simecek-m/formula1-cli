@@ -10,7 +10,7 @@ const getUrlByYear = year => {
 }
 
 export async function scrapeDriversFromYear(year = THIS_YEAR) {
-  logger.info(`Scrapping drivers from ${year}`)
+  logger.info(`Scraping drivers from ${year}`)
   const drivers = []
   const url = getUrlByYear(year)
   try {
@@ -25,7 +25,7 @@ export async function scrapeDriversFromYear(year = THIS_YEAR) {
       drivers.push({lastname, firstname, nationality })
     })
   } catch (error) {
-    logger.error(`Error while srapping drivers from year: ${year}`)
+    logger.error(`Error while scraping drivers from year: ${year}`)
   } finally {
     return drivers
   }

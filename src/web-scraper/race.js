@@ -21,14 +21,14 @@ async function getUrlsOfAllRacesOfYear(year = THIS_YEAR) {
       urls.push({ raceName, link })
     })
   } catch(err) {
-    logger.error(`Error while srapping race urls from year: ${year} `, error)
+    logger.error(`Error while scraping race urls from year: ${year} `, error)
   } finally {
     return urls
   }
 }
 
 export async function scrapeRacesFromYear(year = THIS_YEAR) {
-  logger.info(`Scrapping races from ${year}`)
+  logger.info(`Scraping races from ${year}`)
   const racesResults = []
   const races = await getUrlsOfAllRacesOfYear(year)
   try {
@@ -51,7 +51,7 @@ export async function scrapeRacesFromYear(year = THIS_YEAR) {
       })
     }))
   } catch (error) {
-    logger.error(`Error while srapping races from year: ${year} `, error)
+    logger.error(`Error while scraping races from year: ${year} `, error)
   } finally {
     return racesResults
   }

@@ -10,7 +10,7 @@ const getUrlByYear = year => {
 }
 
 export async function scrapeTeamsFromYear(year = THIS_YEAR) {
-  logger.info(`Scrapping teams from ${year}`)
+  logger.info(`Scraping teams from ${year}`)
   const teams = []
   const url = getUrlByYear(year)
   try {
@@ -22,7 +22,7 @@ export async function scrapeTeamsFromYear(year = THIS_YEAR) {
       teams.push({ name })
     })
   } catch (error) {
-    logger.error(`Error while srapping teams from year: ${year}`)
+    logger.error(`Error while scraping teams from year: ${year}`)
   } finally {
     return teams
   }
