@@ -1,8 +1,8 @@
 import dataFolder from "./src/data/folder.js"
 import { writeToCsvFile} from "./src/data/file.js"
-import { scrapeDriversFromYear } from "./src/page/driver.js"
-import { scrapeTeamsFromYear } from "./src/page/team.js"
-import { scrapeRacesFromYear } from "./src/page/race.js"
+import { scrapeDriversFromYear } from "./src/web-scraper/driver.js"
+import { scrapeTeamsFromYear } from "./src/web-scraper/team.js"
+import { scrapeRacesFromYear } from "./src/web-scraper/race.js"
 
 const SEASON = 2015
 
