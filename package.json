@@ -2,13 +2,13 @@
   "name": "formula1-data",
   "version": "1.0.0",
   "description": "CLI tool for collecting data about Formula 1 from multiple sources.",
-  "main": "index.js",
+  "main": "app.js",
   "repository": "https://github.com/simecek-m/formula1-data.git",
   "author": "simecek.m@seznam.cz",
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "node index"
+    "start": "node app"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.10",
