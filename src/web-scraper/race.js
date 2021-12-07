@@ -1,11 +1,11 @@
 import fetch from 'node-fetch'
 import cheerio from "cheerio"
 import logger from "../logger/index.js"
-import { BASE_URL, RESULTS_URL } from '../constant/url.js'
+import { FORMULA_BASE_URL, FORMULA_RESULTS_URL } from '../constant/url.js'
 import { CHAMPIONSHIP_FIRST_YEAR, THIS_YEAR } from '../constant/year.js'
 
 const getUrlByYear = year => {
-  return `${RESULTS_URL}/${year}/races.html`
+  return `${FORMULA_RESULTS_URL}/${year}/races.html`
 }
 
 async function getUrlsOfAllRacesOfYear(year = THIS_YEAR) {
@@ -34,7 +34,7 @@ export async function scrapeRacesFromYear(year = THIS_YEAR) {
   try {
     await Promise.all(races.map(async race => {
       const { raceName } = race
-      const response = await fetch(`${BASE_URL}${race.link}`)
+      const response = await fetch(`${FORMULA_BASE_URL}${race.link}`)
       const body = await response.text()
       const $ = cheerio.load(body)
       $(".resultsarchive-table tbody tr").each((_, row) => {

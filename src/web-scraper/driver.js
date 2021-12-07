@@ -1,12 +1,12 @@
 import fetch from 'node-fetch'
 import cheerio from "cheerio"
 import logger from "../logger/index.js"
-import { RESULTS_URL } from '../constant/url.js'
+import { FORMULA_RESULTS_URL } from '../constant/url.js'
 import { CHAMPIONSHIP_FIRST_YEAR, THIS_YEAR } from '../constant/year.js'
 import { uniqWith, isEqual } from 'lodash-es'
 
 const getUrlByYear = year => {
-  return `${RESULTS_URL}/${year}/drivers.html`
+  return `${FORMULA_RESULTS_URL}/${year}/drivers.html`
 }
 
 export async function scrapeDriversFromYear(year = THIS_YEAR) {
