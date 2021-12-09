@@ -9,11 +9,12 @@ const logFormat = printf(({ timestamp, level, message }) => {
 export default createLogger({
   level: "info",
   format: format.combine(
-    format.colorize(),
     timestamp({ format: "HH:mm:ss" }),
     logFormat
   ),
   transports: [
-    new transports.Console()
+    new transports.File({
+      filename: 'log.txt',
+    })
   ],
 });
