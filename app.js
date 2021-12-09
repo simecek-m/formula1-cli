@@ -1,27 +1,42 @@
-import dataFolder from "./src/data/folder.js"
-import { writeToCsvFile} from "./src/data/file.js"
-import { scrapeDriversFromYear } from "./src/web-scraper/driver.js"
-import { scrapeTeamsFromYear } from "./src/web-scraper/team.js"
-import { scrapeRacesFromYear } from "./src/web-scraper/race.js"
-import { collectCountries } from "./src/countries/index.js"
+import chalk from "chalk";
+import inquirer from "inquirer";
+import COMMANDS from "./src/commands/index.js";
+import countriesCommandFlow from "./src/flow/countries.js";
 
-const SEASON = 2015
-
-async function start() {
-  await dataFolder.initialize()
-
-  const drivers = await scrapeDriversFromYear(SEASON)
-  await writeToCsvFile("drivers", drivers)
-
-  const teams = await scrapeTeamsFromYear(SEASON)
-  await writeToCsvFile("teams", teams)
-
-  const races = await scrapeRacesFromYear(SEASON)
-  await writeToCsvFile("races", races)
-
-  const countries = await collectCountries()
-  await writeToCsvFile("countries", countries)
-
+async function run() {
+  const command = await inquirer.prompt([
+    {
+      type: 'list',
+      name: 'data',
+      message: 'What data you want to collect?',
+      choices: [
+        {
+          name: 'countries',
+          value: COMMANDS.countries,
+        },
+        {
+          name: 'drivers',
+          value: COMMANDS.drivers,
+        },
+        {
+          name: 'teams',
+          value: COMMANDS.teams,
+        },
+        new inquirer.Separator(),
+        {
+          name: 'just everything 😈',
+          value: COMMANDS.everything,
+        }
+      ],
+    }
+  ])
+  switch(command.data) {
+    case COMMANDS.countries:
+      await countriesCommandFlow()
+      break
+    default:
+      console.log(chalk.red("Unknown command"))
+  }
 }
 
-start()
+run()
