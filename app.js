@@ -1,7 +1,8 @@
 import chalk from "chalk";
 import inquirer from "inquirer";
 import COMMANDS from "./src/commands/index.js";
-import countriesCommandFlow from "./src/flow/countries.js";
+import collectCountriesFlow from "./src/flow/countries.js";
+import collectEveryThingFlow from "./src/flow/everything.js";
 
 async function run() {
   const command = await inquirer.prompt([
@@ -32,7 +33,10 @@ async function run() {
   ])
   switch(command.data) {
     case COMMANDS.countries:
-      await countriesCommandFlow()
+      await collectCountriesFlow()
+      break
+    case COMMANDS.everything:
+      await collectEveryThingFlow()
       break
     default:
       console.log(chalk.red("Unknown command"))
