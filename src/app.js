@@ -1,11 +1,11 @@
 import chalk from "chalk";
 import inquirer from "inquirer";
-import { DATA_COMMANDS, PERIOD_COMMANDS } from "./src/commands.js";
-import collectCountriesFlow from "./src/flow/countries.js";
-import { collectAllDriversFlow, collectDriversFromRangeFlow, collectDriversFromYearFlow } from "./src/flow/drivers.js";
-import collectEveryThingFlow from "./src/flow/everything.js";
-import { collectAllTeamsFlow, collectTeamsFromRangeFlow, collectTeamsFromYearFlow } from "./src/flow/teams.js";
-import { pickPeriod, pickYear, pickYearRange } from "./src/helper/input.js";
+import { DATA_COMMANDS, PERIOD_COMMANDS } from "./commands.js";
+import collectCountriesFlow from "./flow/countries.js";
+import { collectAllDriversFlow, collectDriversFromRangeFlow, collectDriversFromYearFlow } from "./flow/drivers.js";
+import collectEveryThingFlow from "./flow/everything.js";
+import { collectAllTeamsFlow, collectTeamsFromRangeFlow, collectTeamsFromYearFlow } from "./flow/teams.js";
+import { pickPeriod, pickYear, pickYearRange } from "./helper/input.js";
 
 async function run() {
   const { data } = await inquirer.prompt([
