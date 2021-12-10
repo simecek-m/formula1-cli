@@ -3,8 +3,10 @@
     "target": "es5",
     "module": "ES2015",
     "allowJs": true,
+    "checkJs": true,
     "outDir": "./build",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "moduleResolution": "Node"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts"]

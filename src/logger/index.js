@@ -1,5 +1,5 @@
 import * as winston from "winston";
-const { format, createLogger, transports } = winston.default;
+const { format, createLogger, transports } = winston;
 const { timestamp: timestamp, printf: printf } = format;
 
 const logFormat = printf(({ timestamp, level, message }) => {

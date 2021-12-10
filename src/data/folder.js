@@ -23,8 +23,8 @@ export async function clear() {
     const files = await readdir(FOLDER_PATH)
     if(files.length > 0) {
       for (const file of files) {
+        const filePath = join(FOLDER_PATH, file)
         try {
-          const filePath = join(FOLDER_PATH, file)
           await unlink(filePath)
         } catch(err) {
             logger.error(`Removing ${filePath} file caused error: `, err)
