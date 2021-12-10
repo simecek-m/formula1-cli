@@ -1,4 +1,4 @@
-import * as winston from "winston";
+import winston from "winston";
 const { format, createLogger, transports } = winston;
 const { timestamp: timestamp, printf: printf } = format;
 
