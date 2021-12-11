@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "ES2015",
+    "lib": ["ES2021"],
+    "module": "ES2020",
+    "target": "ES2021",
     "allowJs": true,
     "checkJs": true,
     "outDir": "./build",
