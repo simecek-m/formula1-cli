@@ -10,7 +10,7 @@ export const collectAllDriversTasks = [
   },
   {
     title: 'Writing to file',
-    task: async ctx => writeToCsvFile("drivers", ctx.data)
+    task: async ctx => await writeToCsvFile("drivers", ctx.data)
   }
 ]
 
@@ -21,7 +21,7 @@ export const collectDriversFromRangeTasks = (from, to) => [
   },
   {
     title: 'Writing to file',
-    task: async ctx => writeToCsvFile("drivers", ctx.data)
+    task: async ctx => await writeToCsvFile("drivers", ctx.data)
   }
 ]
 
@@ -32,7 +32,7 @@ export const collectDriversFromYearTasks = year => [
   },
   {
     title: 'Writing to file',
-    task: async ctx => writeToCsvFile("drivers", ctx.data)
+    task: async ctx => await writeToCsvFile("drivers", ctx.data)
   }
 ]
 

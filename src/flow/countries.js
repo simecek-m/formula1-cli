@@ -9,7 +9,7 @@ export const tasks = [
   },
   {
     title: 'Writing to file',
-    task: async ctx => writeToCsvFile("countries", ctx.data)
+    task: async ctx => await writeToCsvFile("countries", ctx.data)
   }
 ] 
 

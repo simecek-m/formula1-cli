@@ -9,7 +9,7 @@ export const collectAllTeamsTasks = [
   },
   {
     title: 'Writing to file',
-    task: async ctx => writeToCsvFile("teams", ctx.data)
+    task: async ctx => await writeToCsvFile("teams", ctx.data)
   }
 ]
 
@@ -20,7 +20,7 @@ export const collectTeamsFromRangeTasks = (from, to) => [
   },
   {
     title: 'Writing to file',
-    task: async ctx => writeToCsvFile("teams", ctx.data)
+    task: async ctx => await writeToCsvFile("teams", ctx.data)
   }
 ]
 
@@ -31,7 +31,7 @@ export const collectTeamsFromYearTasks = year => [
   },
   {
     title: 'Writing to file',
-    task: async ctx => writeToCsvFile("teams", ctx.data)
+    task: async ctx => await writeToCsvFile("teams", ctx.data)
   }
 ]
 
