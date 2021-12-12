@@ -1,6 +1,7 @@
 import chalk from "chalk";
 import inquirer from "inquirer";
 import { DATA_COMMANDS, PERIOD_COMMANDS } from "./constant/commands.js";
+import folder from "./data/folder.js";
 import collectCountriesFlow from "./flow/countries.js";
 import { collectAllDriversFlow, collectDriversFromRangeFlow, collectDriversFromYearFlow } from "./flow/drivers.js";
 import collectEveryThingFlow from "./flow/everything.js";
@@ -8,6 +9,7 @@ import { collectAllTeamsFlow, collectTeamsFromRangeFlow, collectTeamsFromYearFlo
 import { pickPeriod, pickYear, pickYearRange } from "./helper/input.js";
 
 async function run() {
+  folder.create()
   const { data } = await inquirer.prompt([
     {
       type: 'list',
