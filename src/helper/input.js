@@ -1,5 +1,5 @@
 import inquirer from "inquirer"
-import { PERIOD_COMMANDS } from "../commands.js"
+import { PERIOD_COMMANDS } from "../constant/commands.js"
 import { CHAMPIONSHIP_FIRST_YEAR, THIS_YEAR } from "../constant/year.js"
 import { isYearValid, isYearInRange } from "../validator/year.js"
 
@@ -13,9 +13,9 @@ export async function pickYear() {
         if(!isYearValid(year)) {
           return "Come on, you really think I'm not validating your input? 😂" 
         } else {
+        }
           return true 
         }
-    }
   }
   ])
   return year
@@ -63,7 +63,7 @@ export async function pickPeriod() {
       choices: [
         {
           name: 'one year',
-          value: PERIOD_COMMANDS.oneYear
+          value: PERIOD_COMMANDS.year
         },
         {
           name: 'range',

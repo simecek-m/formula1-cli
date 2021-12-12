@@ -1,6 +1,6 @@
 import chalk from "chalk";
 import inquirer from "inquirer";
-import { DATA_COMMANDS, PERIOD_COMMANDS } from "./commands.js";
+import { DATA_COMMANDS, PERIOD_COMMANDS } from "./constant/commands.js";
 import collectCountriesFlow from "./flow/countries.js";
 import { collectAllDriversFlow, collectDriversFromRangeFlow, collectDriversFromYearFlow } from "./flow/drivers.js";
 import collectEveryThingFlow from "./flow/everything.js";
@@ -56,7 +56,7 @@ run()
 async function selectFlow(data, period) {
   const { collectYearFlow, collectRangeFlow, collectAllFlow } = getFlow(data)
   switch(period) {
-    case PERIOD_COMMANDS.oneYear:
+    case PERIOD_COMMANDS.year:
       const year = await pickYear()
       await collectYearFlow(year)
       break
