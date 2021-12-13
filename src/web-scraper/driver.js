@@ -24,10 +24,9 @@ export async function scrapeDriversFromYear(year = THIS_YEAR) {
       const nationality = $(row).find("td:nth-child(4)").text().trim()
       drivers.push({lastname, firstname, nationality })
     })
+    return drivers
   } catch (error) {
     logger.error(`Error while scraping drivers from year: ${year}`)
-  } finally {
-    return drivers
   }
 }
 

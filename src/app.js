@@ -9,7 +9,7 @@ import { collectAllTeamsFlow, collectTeamsFromRangeFlow, collectTeamsFromYearFlo
 import { pickPeriod, pickYear, pickYearRange } from "./helper/input.js";
 
 async function run() {
-  folder.create()
+  await folder.create()
   const { data } = await inquirer.prompt([
     {
       type: 'list',
@@ -41,10 +41,11 @@ async function run() {
       await collectCountriesFlow()
       break
     case DATA_COMMANDS.drivers:
-    case DATA_COMMANDS.teams:
+    case DATA_COMMANDS.teams: {
       const period = await pickPeriod()
       selectFlow(data, period)
       break
+    }
     case DATA_COMMANDS.everything:
       await collectEveryThingFlow()
       break
@@ -58,14 +59,16 @@ run()
 async function selectFlow(data, period) {
   const { collectYearFlow, collectRangeFlow, collectAllFlow } = getFlow(data)
   switch(period) {
-    case PERIOD_COMMANDS.year:
+    case PERIOD_COMMANDS.year: {
       const year = await pickYear()
       await collectYearFlow(year)
       break
-    case PERIOD_COMMANDS.range:
+    }
+    case PERIOD_COMMANDS.range: {
       const { from, to } = await pickYearRange()
       await collectRangeFlow(from, to)
       break
+    }
     default:
       await collectAllFlow()
   }

@@ -2,12 +2,12 @@ import fetch, { Response } from 'node-fetch'
 import { COUNTRIES_API_BASE_URL } from '../constant/url.js'
 
 interface Country {
-  field: String,
-  cioc: String,
+  field: string,
+  cioc: string,
   name: {
-    common: String
+    common: string
   },
-  flags: Array<String>
+  flags: Array<string>
 }
 
 export async function collectCountries() {

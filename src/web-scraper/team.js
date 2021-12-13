@@ -21,10 +21,9 @@ export async function scrapeTeamsFromYear(year = THIS_YEAR) {
       const name = $(row).find("td:nth-child(3) a").text().trim()
       teams.push({ name })
     })
+    return teams
   } catch (error) {
     logger.error(`Error while scraping teams from year: ${year}`)
-  } finally {
-    return teams
   }
 }
 

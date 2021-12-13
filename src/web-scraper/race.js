@@ -20,10 +20,9 @@ async function getUrlsOfAllRacesOfYear(year = THIS_YEAR) {
       const link = $(el).attr("href")
       urls.push({ raceName, link })
     })
+    return urls
   } catch(error) {
     logger.error(`Error while scraping race urls from year: ${year} `, error)
-  } finally {
-    return urls
   }
 }
 
@@ -50,10 +49,9 @@ export async function scrapeRacesFromYear(year = THIS_YEAR) {
         racesResults.push({ year, raceName, position, lastname, firstname, driverNumber, team, laps, time, points })
       })
     }))
+    return racesResults
   } catch (error) {
     logger.error(`Error while scraping races from year: ${year} `, error)
-  } finally {
-    return racesResults
   }
 }
 

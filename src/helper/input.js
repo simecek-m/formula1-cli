@@ -12,7 +12,6 @@ export async function pickYear() {
       validate: year => {
         if(!isYearValid(year)) {
           return "Come on, you really think I'm not validating your input? 😂" 
-        } else {
         }
           return true 
         }
