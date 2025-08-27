@@ -1,4 +1,4 @@
-# Project
+# Formula 1 CLI
 
 CLI tool for collecting Formula 1 data.
 
